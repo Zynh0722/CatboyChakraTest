@@ -11,6 +11,8 @@ import {
 
 function App() {
   const [image, setImage] = useState("");
+  const [baka, setBaka] = useState("");
+
 
   useEffect(() => {
     uwuNewCatBoi();
@@ -23,8 +25,25 @@ function App() {
       .then(setImage);
   }
 
+  function uwuNewBaka() {
+    fetch("https://api.catboys.com/baka")
+      .then(res => res.json())
+      .then(data => data.url)
+      .then(setBaka);
+  }
+
+  function handleChange(expanded) {
+    if (!expanded.includes(0)) {
+      uwuNewCatBoi();
+    } 
+
+    if (!expanded.includes(1)) {
+      uwuNewBaka();
+    }
+  }
+
   return (
-    <Accordion onChange={a => !a.includes(0) && uwuNewCatBoi()} allowMultiple>
+    <Accordion onChange={handleChange} allowMultiple>
       <AccordionItem>
         <h2>
           <AccordionButton>
@@ -35,7 +54,7 @@ function App() {
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4}>
-          <Image src={image} alt="uwu catboy"></Image>
+          <Image src={image} alt="uwu catboy" />
         </AccordionPanel>
       </AccordionItem>
 
@@ -49,10 +68,7 @@ function App() {
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.
+          <Image src={baka} alt="uwu baka" />
         </AccordionPanel>
       </AccordionItem>
     </Accordion>
