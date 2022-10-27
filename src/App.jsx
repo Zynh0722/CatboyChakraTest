@@ -12,6 +12,7 @@ import {
 function App() {
   const [image, setImage] = useState("");
   const [baka, setBaka] = useState("");
+  const [oldExpanded, setOldExpanded] = useState([]);
 
   useEffect(() => {
     uwuNewCatBoi();
@@ -33,13 +34,13 @@ function App() {
   }
 
   function handleChange(expanded) {
-    if (!expanded.includes(0)) {
-      uwuNewCatBoi();
-    } 
+    const setters = [uwuNewCatBoi, uwuNewBaka];
 
-    if (!expanded.includes(1)) {
-      uwuNewBaka();
-    }
+    for (let i in setters) 
+      if (!expanded.includes(Number(i)) && oldExpanded.includes(Number(i))) 
+        setters[i]();
+
+    setOldExpanded(expanded);
   }
 
   return (
