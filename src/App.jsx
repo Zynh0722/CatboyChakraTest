@@ -13,9 +13,9 @@ function App() {
   const [image, setImage] = useState("");
   const [baka, setBaka] = useState("");
 
-
   useEffect(() => {
     uwuNewCatBoi();
+    uwuNewBaka();
   }, []);
 
   function uwuNewCatBoi() {
