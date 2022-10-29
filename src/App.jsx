@@ -20,17 +20,18 @@ function App() {
   }, []);
 
   function uwuNewCatBoi() {
-    fetch("https://api.catboys.com/img")
-      .then(res => res.json())
-      .then(data => data.url)
-      .then(setImage);
+    uwuNew("https://api.catboys.com/img", setImage);
   }
 
   function uwuNewBaka() {
-    fetch("https://api.catboys.com/baka")
+    uwuNew("https://api.catboys.com/baka", setBaka);
+  }
+
+  function uwuNew(url, setter) {
+    fetch(url)
       .then(res => res.json())
       .then(data => data.url)
-      .then(setBaka);
+      .then(setter);
   }
 
   function handleChange(expanded) {
