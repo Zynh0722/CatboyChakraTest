@@ -49,7 +49,7 @@ function App() {
         <h2>
           <AccordionButton>
             <Box flex='1' textAlign='left'>
-              Section 1 title
+              Catboi
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -63,7 +63,7 @@ function App() {
         <h2>
           <AccordionButton>
             <Box flex='1' textAlign='left'>
-              Section 2 title
+              Baka~
             </Box>
             <AccordionIcon />
           </AccordionButton>
